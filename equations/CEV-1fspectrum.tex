@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{amsmath}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+
+\begin{document}
+
+\title{Nonlinear stochastic differential equation generating $1/f$ noise}
+
+\author{Julius Ruseckas}
+
+\date{\today{}}
+
+\maketitle
+
+\section{Nonlinear stochastic differential equations with multiplicative noise}
+
+In Refs.~\cite{kaulakys2004,kaulakys2006} nonlinear stochastic differential
+equations (SDEs) of the form
+\begin{equation}
+dx_{t}=\sigma^{2}\left(\eta-\frac{\lambda}{2}\right)x_{t}^{2\eta-1}dt
++\sigma x_{t}^{\eta}dW_{t}\label{eq:sde-1}
+\end{equation}
+have been proposed. Here $W_{t}$ is a standard Wiener process (the
+Brownian motion), $\eta$ is the power-law exponent of multiplicative
+noise and $\sigma$ is the amplitude of the noise. In order to avoid
+the divergence of the steady-state probability density function (PDF),
+Eq.~(\ref{eq:sde-1}) should be considered together with appropriate
+restriction of the diffusion of the stochastic variable $x$. Here
+we investigate the SDE with the exponential restriction of diffusion
+at $x=x_{\mathrm{min}}$
+\begin{equation}
+dx_{t}=\sigma^{2}\left(\eta-\frac{\lambda}{2}+\frac{m}{2}
+\left(\frac{x_{\mathrm{min}}}{x}\right)^{m}\right)x_{t}^{2\eta-1}dt
++\sigma x_{t}^{\eta}dW_{t}\,.
+\label{eq:SDE-our}
+\end{equation}
+Equation (\ref{eq:SDE-our}) has stationary probability distribution
+function (PDF) of the form
+\begin{equation}
+P_{0}(x)\sim x^{-\lambda}
+\exp\left(-\left(\frac{x_{\mathrm{min}}}{x}\right)^{m}\right)\,.
+\end{equation}
+Based on scaling consideration \cite{ruseckas2014} it is predicted
+that the power spectral density (PSD) of the signal $x_{t}$ has $f^{-\beta}$
+behaviour in a wide range of frequencies, with 
+\begin{equation}
+\beta=1+\frac{\lambda-3}{2(\eta-1)}\,.
+\end{equation}
+Using the parameters $\lambda=2\eta$ and $m=2\eta-2$, equation
+(\ref{eq:SDE-our}) takes the form of the \emph{Constant Elasticity of Variance}
+(CEV) process:
+\begin{equation}
+dx_{t}=\sigma^{2}(\eta-1)x_{\mathrm{min}}^{2(\eta-1)}x_{t}dt
++\sigma x_{t}^{\eta}dW_{t}\,.
+\end{equation}
+If $\lambda=3$ then SDE (\ref{eq:SDE-our}) gives $1/f$ spectrum.
+Thus the CEV process has $1/f$ spectrum when $\eta=\frac{3}{2}$:
+\begin{equation}
+dx_{t}=\mu x_{t}dt+\sigma x_{t}^{\frac{3}{2}}dW_{t}\,.\label{eq:SDE-CEV}
+\end{equation}
+Here
+\begin{equation}
+\mu=\frac{1}{2}\sigma^{2}x_{\mathrm{min}}\,.
+\end{equation}
+
+
+\subsection{Derivation of the analytical expression for the power spectral density}
+
+The analytical expression for the transition probability $P_{x}(x',t|x,0)$
+(the conditional probability that at time $t$ the signal has value
+$x$ with the condition that at time $t=0$ the signal had the value
+$x_{0}$) of the CEV process is \cite{kazakevicius2016}
+\begin{equation}
+P_{x}(x,t|x_{0},0)=\frac{x_{\mathrm{min}}}{(1-e^{-\mu t})}
+\sqrt{\frac{x_{0}}{x^{5}}}\exp\left(\frac{1}{2}\mu t
+-\frac{x_{\mathrm{min}}}{(1-e^{-\mu t})}\left(\frac{1}{x}
++\frac{1}{x_{0}}e^{-\mu t}\right)\right)
+I_{1}\left(\frac{x_{\mathrm{min}}}{\sinh\left(\frac{1}{2}\mu t\right)}
+\frac{1}{\sqrt{x_{0}x}}\right)\,.
+\label{eq:trans}
+\end{equation}
+Here $I_{z}$ is the modified Bessel function with index $z$. The
+steady-state PDF has the form
+\begin{equation}
+P_{0}(x)=\frac{x_{\mathrm{min}}^{2}}{x^{3}}
+\exp\left(-\frac{x_{\mathrm{min}}}{x}\right)\,.
+\end{equation}
+The average of the signal is
+\begin{equation}
+\bar{x}=\int_{0}^{\infty}xP_{0}(x)dx=x_{\mathrm{min}}\,.
+\end{equation}
+The autocorrelation function can be calculated using the expression
+\begin{equation}
+C(t)=\int dx\int dx'\,(x-\bar{x})(x'-\bar{x})P_{0}(x)P_{x}(x',t|x,0)\,.
+\end{equation}
+Using Eq.~(\ref{eq:trans}) and performing the integration we obtain
+the autocorrelation function
+\begin{equation}
+C(t)=x_{\mathrm{min}}^{2}\left[-e^{\mu t}
+\ln\left(1-e^{-\mu t}\right)-1\right]\,.
+\label{eq:autocorr}
+\end{equation}
+When $\mu t\ll1$ we get
+\begin{equation}
+C(t)\approx-x_{\mathrm{min}}^{2}-x_{\mathrm{min}}^{2}\ln(\mu t)\,.
+\end{equation}
+Similar expansion has been obtained for the autocorrelation function
+in the case of $1/f$ spectrum.
+
+According to Wiener-Khintchine relations, the power spectral density
+is connected with the autocorrelation function via the transformation
+\begin{equation}
+S(f)=2\int_{-\infty}^{\infty}C(t)e^{i\omega t}dt=4\int_{0}^{\infty}C(t)
+\cos(\omega t)dt\,,
+\label{eq:wk}
+\end{equation}
+where $\omega=2\pi f$ . Using Eq.~(\ref{eq:autocorr}) for the autocorrelation
+function we get the following expression for the power spectral density:
+\begin{equation}
+S(f)=2x_{\mathrm{min}}^{2}\left[\frac{-\gamma
+-\psi\left(-i\frac{\omega}{\mu}\right)}{\mu+i\omega}
++\frac{-\gamma-\psi\left(i\frac{\omega}{\mu}\right)}{\mu-i\omega}\right]\,,
+\end{equation}
+where $\gamma\approx0.577216$ is the Euler's constant and
+$\psi(z)=\Gamma^{\prime}(z)/\Gamma(z)$ is the digamma function. When
+$\omega\gg\mu$ then the power spectral density is
+\begin{equation}
+S(f)\approx\frac{2\pi x_{\mathrm{min}}^{2}}{\omega}\,.
+\end{equation}
+
+
+\section{Method of numerical solution}
+
+Method of numerical solution with a variable time step is described
+in Ref.~\cite{ruseckas2016}. For the numerical solution, we use
+Euler-Marujama approximation, transforming differential equations
+to difference equations. If the time step is $\Delta t=h$ then the
+difference equations, corresponding to Eq.~(\ref{eq:SDE-CEV}) are
+\begin{align}
+x_{k+1} = & x_{k}+\mu x_{k}h+\sigma x_{k}^{\frac{3}{2}}\sqrt{h}\varepsilon_{k}\\
+t_{k+1} = & t_{k}+h
+\end{align}
+Here $\varepsilon_{k}$ are normally distributed uncorrelated random
+variables with a zero expectation and unit variance. Variable time
+step of integration 
+\[
+h_{k}=\frac{\kappa^{2}}{\sigma^{2}x_{k}}
+\]
+leads to the equations
+\begin{align}
+x_{k+1} = & x_{k}+\frac{1}{2}\kappa^{2}x_{\mathrm{min}}+\kappa x_{k}\varepsilon_{k}\\
+t_{k+1} = & t_{k}+\frac{\kappa^{2}}{\sigma^{2}x_{k}}
+\end{align}
+Here $\kappa\ll1$ is a small parameter.
+
+\begin{thebibliography}{1}
+\bibitem{kaulakys2004}B.~Kaulakys and J.~Ruseckas, \textit{Stochastic
+nonlinear differential equation generating 1/f noise}, Phys.~Rev.~E
+\textbf{70}, 020101 (2004).
+
+\bibitem{kaulakys2006}B.~Kaulakys, J.~Ruseckas, V.~Gontis and
+M.~Alaburda, \textit{Nonlinear stochastic models of 1/f noise and power-law
+distributions}, Physica A \textbf{365}, 217\textendash 221 (2006).
+
+\bibitem{ruseckas2014}J.~Ruseckas and B.~Kaulakys, \textit{Scaling
+properties of signals as origin of 1/f noise}, J.~Stat.~Mech.\ \textbf{2014},
+P06005 (2014).
+
+\bibitem{kazakevicius2016}R.~Kazakevi\v{c}ius and J.~Ruseckas,
+\textit{Influence of external potentials on heterogeneous diffusion
+processes}, Phys.~Rev.~E \textbf{94}, 032109 (2016).
+
+\bibitem{ruseckas2016}J.~Ruseckas, R.~Kazakevi\v{c}ius and B.~Kaulakys,
+\textit{1/f noise from point process and time-subordinated Langevin
+equations}, J.~Stat.~Mech.\ \textbf{2016}, 054022 (2016).
+\end{thebibliography}
+
+\end{document}
