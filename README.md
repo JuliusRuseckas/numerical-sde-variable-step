@@ -1,6 +1,6 @@
 # Numerical solution of stochastic differential equations using a variable time step
 
-This is a source code for the numerical solution of nonlinear stochastic differential equations generating signals with _1/f_ noise. The equtions are described in Refs. [1-2]. The code can be adapted to solve various equations of this type.
+This is a source code for the numerical solution of nonlinear stochastic differential equations generating signals with _1/f_ noise. The equtions are described in Refs. [[1](#ref1)-2]. The code can be adapted to solve various equations of this type.
 
 The particular case of the equation with the known analytical expression for the power spectral density and the method of solution are described by the files in the directiory 'equations'.
 
@@ -14,6 +14,6 @@ The program 'spectrum' outputs the sample signal into the file 'signal.dat', the
 
 [Gnuplot](http://www.gnuplot.info/) scripts for plotting the stationary probability distribution, the power spectral density and for comparison with the analytical expression are provided in the directory [test](test)
 
-[1] B. Kaulakys and J. Ruseckas, _Stochastic nonlinear differential equation generating 1/f noise_, Phys. Rev. E **70**, 020101 (2004). doi: [10.1103/PhysRevE.70.020101](https://doi.org/10.1103/PhysRevE.70.020101)
+[<a name="ref1"></a>1] B. Kaulakys and J. Ruseckas, _Stochastic nonlinear differential equation generating 1/f noise_, Phys. Rev. E **70**, 020101 (2004). doi: [10.1103/PhysRevE.70.020101](https://doi.org/10.1103/PhysRevE.70.020101)
     
 [2] B. Kaulakys, J. Ruseckas, V. Gontis and M. Alaburda, _Nonlinear stochastic models of 1/f noise and power-law distributions_, Physica A **365**, 217-221 (2006). doi: [10.1016/j.physa.2006.01.017](https://doi.org/10.1016/j.physa.2006.01.017)
