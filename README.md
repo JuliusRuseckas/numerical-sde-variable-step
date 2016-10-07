@@ -2,7 +2,7 @@
 
 This is a source code for the numerical solution of nonlinear stochastic differential equations generating signals with _1/f_ noise. The equtions are described in Refs. [[1](#ref1)-[2](#ref2)]. The code can be adapted to solve various equations of this type.
 
-The particular case of the equation with the known analytical expression for the power spectral density and the method of solution are described by the files in the directiory 'equations'.
+The particular case of the equation with the known analytical expression for the power spectral density and the method of solution are described by the files in the directiory [equations](equations).
 
 The main file of the program is [spectrum.c](spectrum.c). The actual numerical solution of the equation is in the file [compute_signal.c](compute_signal.c).
 
